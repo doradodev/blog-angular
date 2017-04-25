@@ -1,0 +1,10 @@
+h1,p,h3{
+    font-family: 'Lato', sans-serif;
+} 
+.ui-dropdown{
+    width: 100%;
+}
+#short-description-div{
+
+    margin-bottom: 30px;
+}

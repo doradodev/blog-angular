@@ -1,0 +1,32 @@
+<div class="row align-center">
+    <h1>{{title}}</h1>
+</div>
+<div class="row">
+    <p-dataList [value]="articles" [paginator]="true" [rows]="10">
+        <p-header>
+            Articulos
+        </p-header>
+        <ng-template let-article pTemplate="item">
+            <div id="title" class="row align-center">
+                <div class="column medium-12">
+                    <div>{{article.title}}</div>
+                </div>
+            </div>
+            <div id="category"class="row">
+                <div class="column">
+                    <div>{{article.category}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column align-center">
+                    <div [innerHTML]="article.description"></div>                          
+                </div>
+            </div>                
+        </ng-template>    
+    </p-dataList>
+</div>
+<div class="row align-center">
+    <div class="column medium-3 align-center">                
+        <button id="create-button" type= "submit" class="hollow button large" (click)="createArticle()" >Crear articulo</button>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+<p-growl [value]="msgs" sticky="sticky"></p-growl>
+<div class="row align-center">
+    <h1>{{homeTitle}}</h1>
+</div>
+<div id="main-container">   
+    <form [formGroup]="blogform" (ngSubmit)="onSubmit(blogform.value)">
+        <div class="row align-right align-middle">
+            <div class="column small-12 medium-3 align-right">
+                <p-dropdown [autoWidth]="false" id="dropdown" [options]="categories" formControlName="category"></p-dropdown>    
+            </div>
+        </div>
+        <div class="row align-left">
+            <h3>Titulo*:</h3>
+        </div>
+        <div class="row">
+            <div class="column">
+                <input type="text" pInputText placeholder="required" formControlName="title" [(ngModel)]="titleSlug">
+            </div>
+        </div>
+        <div class="row">
+            <div *ngIf="!blogform.controls['title'].valid&&blogform.controls['title'].dirty">
+            <i ></i>
+            Titulo es requerido
+            </div>
+        </div>
+        <div class="row">    
+            <p>
+            Url articulo: {{titleSlug | slugPipe: title}}
+            </p>
+        </div>        
+        <div class="row align-left">
+            <h3>Descripcion:</h3>
+        </div>
+        <div class="row align-center">
+            <div class="column">
+                <p-editor formControlName="description" [style]="{'height':'320px'}"></p-editor>
+            </div>
+        </div>
+        <div class="row align-left">
+            <h3>Descripcion Corta*:</h3>
+        </div>
+        <div id="short-description-div" class="row align-center">
+            <div class="column">
+                <textarea pInputTextarea formControlName="shortDescription"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngIf="!blogform.controls['shortDescription'].valid&&blogform.controls['shortDescription'].dirty">
+            <i ></i>
+            Descripcion corta es requerida
+            </div>
+        </div>        
+        <div class="row align-right">
+            <div class="column medium-3 align-left">                
+                <button class="hollow button large" (click)="volver()">Volver</button>
+            </div>
+            <div class="column medium-3 align-right">                
+                <button type= "submit" class="hollow button large" [disabled]="!blogform.valid">Guardar</button>
+            </div>            
+        </div>        
+    </form>
+</div>
+    
+
+

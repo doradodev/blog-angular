@@ -19,9 +19,20 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "../node_modules/primeng/resources/themes/omega/theme.css",
+        "../node_modules/font-awesome/css/font-awesome.min.css",
+        "../node_modules/primeng/resources/primeng.min.css",
+        "../node_modules/quill/dist/quill.core.css", 
+        "../node_modules/quill/dist/quill.snow.css",
+        "../node_modules/foundation-sites/dist/css/foundation-flex.css",
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/quill/dist/quill.js",
+        "../node_modules/foundation-sites/vendor/jquery/dist/jquery.min.js",
+        "../node_modules/foundation-sites/dist/js/foundation.min.js"
+
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
